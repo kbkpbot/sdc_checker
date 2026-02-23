@@ -1,0 +1,25 @@
+# Binary files
+sdc_checker
+*.exe
+*.out
+
+# V language build artifacts
+*.o
+*.obj
+*.so
+*.dll
+*.dylib
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test artifacts
+tests/*.log
