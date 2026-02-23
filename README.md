@@ -20,21 +20,21 @@ A lightweight and efficient SDC (Synopsys Design Constraints) file checker writt
 
 This tool excels in workflows involving LLM-generated SDC files:
 
+```mermaid
+flowchart LR
+    A[LLM Gen<br/>SDC File] --> B[sdc_checker<br/>Pre-check]
+    B --> C{Errors?}
+    C -->|Yes| D[Feedback to<br/>LLM]
+    D --> A
+    C -->|No| E[Passed<br/>Delivery]
+    E --> F[OpenSTA<br/>Timing Analysis]
 ```
-┌─────────────┐     ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│   LLM Gen   │────▶│ sdc_checker │────▶│   Results   │────▶│ Feedback to │
-│  SDC File   │     │  Pre-check  │     │             │     │     LLM     │
-└─────────────┘     └─────────────┘     └─────────────┘     └──────┬──────┘
-                                                                    │
-                              ◄─────────────────────────────────────┘
-                              │         Loop until no errors
-                              ▼
-┌─────────────┐     ┌─────────────┐
-│   OpenSTA   │◀────│   Passed    │
-│    Timing   │     │   Delivery  │
-│   Analysis  │     │             │
-└─────────────┘     └─────────────┘
-```
+
+**Workflow Steps:**
+1. **Generation**: LLM generates SDC file from design requirements
+2. **Validation**: `sdc_checker` validates syntax and semantics
+3. **Feedback Loop**: Errors are fed back to LLM for correction
+4. **Delivery**: Validated SDC file proceeds to OpenSTA
 
 **Benefits:**
 - Early error detection before running OpenSTA
