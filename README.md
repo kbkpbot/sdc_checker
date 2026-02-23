@@ -28,6 +28,14 @@ flowchart LR
     D --> A
     C -->|No| E[Passed<br/>Delivery]
     E --> F[OpenSTA<br/>Timing Analysis]
+
+    classDef highlight fill:#4CAF50,stroke:#2E7D32,stroke-width:3px,color:#fff
+    classDef normal fill:#f5f5f5,stroke:#666,stroke-width:1px
+    classDef decision fill:#FF9800,stroke:#E65100,stroke-width:2px,color:#fff
+
+    class B highlight
+    class A,D,E,F normal
+    class C decision
 ```
 
 **Workflow Steps:**
